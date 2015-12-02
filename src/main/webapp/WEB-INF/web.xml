@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+  <servlet>
+    <servlet-name>docServ</servlet-name>
+    <servlet-class>com.mycompany.docman.DocServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>docServ</servlet-name>
+    <url-pattern>/documentAll</url-pattern>
+  </servlet-mapping>
+</web-app> 

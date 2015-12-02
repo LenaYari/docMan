@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Document View</title>
+        <script type = "text/javascript" 
+        src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+        <script type = "text/javascript" language = "javascript">
+            $(document).ready(function () {
+                $("#driver").click(function (event) {
+                    $.ajax({
+                        url: 'documentAll',
+                        type: 'GET',
+                        success: function responseHandler(response)
+                        {
+                            console.log(response);
+                            var trHTML = '';
+                            $.each(response, function (i, item) {
+
+                                trHTML += '<tr><td>' + item.docid +
+                                        '</td><td>' + item.doctype +
+                                        '</td><td>' + item.contragnt +
+                                        '</td><td>' + item.contragntid +
+                                        '</td><td>' + item.docdate +
+                                        '</td><td>' + item.expdate +
+                                        '</td><td>' + item.initial +
+                                        '</td><td>' + item.docsubj +
+                                        '</td><td>' + item.comment +
+                                        '</td></tr>';
+                            });
+                            $('#doc_table').append(trHTML);
+                            console.log(trHTML);
+                            
+                        }
+                    });
+                });
+            });
+        </script>
+        <link type="text/css" href="style.css" rel="stylesheet" />
+    </head>
+
+    <body>
+
+        <p>Click on the button to load documents</p>
+
+        <div>
+            <table id="doc_table" >
+                <thead>
+                    <tr>
+                        <th>Doc ID</th>
+                        <th>Doc Type</th>
+                        <th>Contragent</th>
+                        <th>Contragent ID</th>
+                        <th>Doc Date</th>
+                        <th>Expire Date</th>
+                        <th>Initiator</th>
+                        <th>Subject</th>
+                        <th>Comment</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+
+        <input type = "button" id = "driver" value = "Load Data" />
+
+    </body>
+
+</html>
